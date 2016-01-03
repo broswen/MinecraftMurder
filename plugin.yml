@@ -1,0 +1,9 @@
+name: MinecraftMurder
+version: 1.0
+author: broswen
+main: com.broswen.minecraftmurder.MinecraftMurder
+commands:
+  murder:
+    description: the main command.
+
+permissions:

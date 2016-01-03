@@ -1,0 +1,5 @@
+arenas:
+  1:
+    spawnBounds1: world,288.5,70,26.5
+    spawnBounds2: world,291.5,70,22.5
+    lobby: world,291.5,70,22.5

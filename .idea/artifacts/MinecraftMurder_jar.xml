@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MinecraftMurder:jar">
+    <output-path>$USER_HOME$/Desktop/plugin testing/plugins</output-path>
+    <root id="archive" name="MinecraftMurder.jar">
+      <element id="module-output" name="MinecraftMurder" />
+      <element id="file-copy" path="$PROJECT_DIR$/config.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
+    </root>
+  </artifact>
+</component>
