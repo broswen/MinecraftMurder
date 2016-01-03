@@ -107,6 +107,15 @@ public class MurderCommand implements CommandExecutor{
             return true;
         }
 
+        if(strings[0].equalsIgnoreCase("help")){
+            p.sendMessage(Messages.PREFIX + "==== HELP ====");
+            p.sendMessage("/murder join");
+            p.sendMessage("/murder leave");
+            p.sendMessage("/murder start");
+            p.sendMessage("/murder stop");
+            p.sendMessage("/murder arenainfo");
+        }
+
 
 
         return false;

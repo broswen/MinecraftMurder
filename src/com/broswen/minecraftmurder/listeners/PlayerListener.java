@@ -5,6 +5,7 @@ import com.broswen.minecraftmurder.core.Arena;
 import com.broswen.minecraftmurder.core.ArenaManager;
 import com.broswen.minecraftmurder.core.constants.ArenaState;
 import com.broswen.minecraftmurder.core.constants.Messages;
+import com.broswen.minecraftmurder.runnables.ShootGun;
 import com.broswen.minecraftmurder.runnables.ThrowKnife;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
@@ -69,7 +70,7 @@ public class PlayerListener implements Listener{
         }
         Player p = (Player) event.getEntity();
 
-        if(ArenaManager.getArena(p) != null){
+        if(ArenaManager.getArena(p) != null && !event.getCause().equals(EntityDamageEvent.DamageCause.ENTITY_ATTACK)){
             event.setCancelled(true);
             return;
         }
@@ -87,6 +88,11 @@ public class PlayerListener implements Listener{
         if(p.getItemInHand().getType().equals(Material.SHEARS) && event.getAction().equals(Action.RIGHT_CLICK_AIR)){
             BukkitTask task = new ThrowKnife(a, p).runTaskTimer(MinecraftMurder.getPlugin(), 0L, 1L);
             p.setItemInHand(new ItemStack(Material.AIR));
+            return;
+        }
+
+        if(p.getItemInHand().getType().equals(Material.IRON_BARDING) && event.getAction().equals(Action.RIGHT_CLICK_AIR)){
+            BukkitTask task = new ShootGun(a, p, p.getItemInHand()).runTaskTimer(MinecraftMurder.getPlugin(), 0L, 1L);
             return;
         }
 

@@ -146,6 +146,13 @@ public class Arena {
         }
     }
 
+    public static void playSound(Sound sound, Location loc){
+        for(UUID uuid : players){
+            Player p = Bukkit.getPlayer(uuid);
+            p.playSound(loc, sound, 1, 1);
+        }
+    }
+
     public static boolean hasBystandersWon(){
 
         if(getSpectators().contains(murderer)){
